@@ -1,6 +1,7 @@
 package com.example.restaurant.restaurant.entity;
 
 import com.example.restaurant.BaseEntity;
+import com.example.restaurant.menu.MenuEntity;
 import com.example.restaurant.user.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -31,7 +32,7 @@ public class RestaurantEntity extends BaseEntity {
     private String closeTime;
 
     @OneToMany(mappedBy = "restaurant")
-    private List<Menu> menuList = new ArrayList<>();
+    private List<MenuEntity> menuList = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "user_id")

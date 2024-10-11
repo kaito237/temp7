@@ -2,6 +2,7 @@ package com.example.restaurant;
 
 import com.example.restaurant.user.UserEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 @Setter
@@ -19,7 +20,7 @@ public class OpenRequestEntity extends BaseEntity {
     private String status;
 
 
-
+    @OneToMany(mappedBy = "user")
     private UserEntity user;
 
 

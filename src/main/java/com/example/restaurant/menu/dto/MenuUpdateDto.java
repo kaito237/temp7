@@ -1,7 +1,9 @@
 package com.example.restaurant.menu.dto;
 
 import com.example.restaurant.menu.MenuEntity;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.validator.constraints.Range;
 
 
 @Getter
@@ -11,18 +13,24 @@ import lombok.*;
 @AllArgsConstructor
 public class MenuUpdateDto {
     private Long id;
+
+    @NotBlank(message = "nhap ten menu")
     private String nameFood;
+
+    @Range(min = 500, max = 100000, message = "gia tu 500-100000")
     private int price;
+
     private String image;
     private MenuEntity.Status status;
 
+
     public MenuEntity toMenuEntity() {
-        MenuEntity menu = new MenuEntity();
-        menu.setNameFood(this.nameFood);
-        menu.setPrice(this.price);
-        menu.setImage(this.image);
-        menu.setStatus(this.status);
-        return menu;
+        return MenuEntity.builder()
+                .nameFood(nameFood)
+                .price(price)
+                .image(image)
+                .status(status)
+                .build();
 
     }
 }

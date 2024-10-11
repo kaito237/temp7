@@ -22,13 +22,4 @@ public class MenuDto {
     private Status status;
 
 
-    public static MenuDto fromEntity(MenuEntity entity) {
-        return MenuDto.builder()
-                .id(entity.getId())
-                .nameFood(entity.getNameFood())
-                .price(entity.getPrice())
-                .image(entity.getImage())
-                .status(entity.getStatus())
-                .build();
-    }
 }

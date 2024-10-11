@@ -3,6 +3,7 @@ package com.example.restaurant;
 import com.example.restaurant.restaurant.entity.RestaurantEntity;
 import com.example.restaurant.user.UserEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -25,7 +26,7 @@ public class ReservationEntity extends BaseEntity{
 
 
     private UserEntity user;
-
+ @OneToMany
     private RestaurantEntity restaurant;
 
 
